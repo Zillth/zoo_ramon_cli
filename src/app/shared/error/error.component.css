@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+}
+
+.error__container {
+    flex-grow: 2;
+    text-align: center;
+    padding-top: 20%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.img__container {
+    width: 40%;
+    max-width: 700px;
+}

@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+}
+
+.table__container {
+    max-width: 1600px;
+    margin: 40px auto;
+    min-height: 500px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.add__container {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+}
+
+.font__config {
+    padding: 5px;
+    max-width: 150px
+}
+
+.headers {
+    text-align: center;
+}

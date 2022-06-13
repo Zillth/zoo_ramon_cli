@@ -1,0 +1,100 @@
+<div class="mat-elevation-z8 table__container">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef class="headers">ID</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.id_animal }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="NOMBRE">
+      <th mat-header-cell *matHeaderCellDef class="headers">NOMBRE</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.nombre_animal }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="CONSERVACIÓN">
+      <th mat-header-cell *matHeaderCellDef class="headers">CONSERVACIÓN</th>
+      <td mat-cell *matCellDef="let element" class="font__config">
+        {{ element.e_conservacion }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef class="headers">Categoria</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.categoria }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="DIETA">
+      <th mat-header-cell *matHeaderCellDef class="headers">DIETA</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.dieta }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="REPRODUCCION">
+      <th mat-header-cell *matHeaderCellDef class="headers">REPRODUCCION</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.reproduccion }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ADAPTACIÓN">
+      <th mat-header-cell *matHeaderCellDef class="headers">ADAPTACIÓN</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.adaptacion }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="AMENAZAS">
+      <th mat-header-cell *matHeaderCellDef class="headers">AMENAZAS</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.amenazas }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ESPECIE">
+      <th mat-header-cell *matHeaderCellDef class="headers">ESPECIE</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.nombre_especie }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ZONA">
+      <th mat-header-cell *matHeaderCellDef class="headers">ZONA</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.nombre_zona }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ECOSISTEMA">
+      <th mat-header-cell *matHeaderCellDef class="headers">ECOSISTEMA</th>
+      <td mat-cell *matCellDef="let element" class="font__config">{{ element.nombre_ecosistema }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ACCIONES">
+      <th mat-header-cell *matHeaderCellDef class="headers">Acciones</th>
+      <td mat-cell *matCellDef="let element" class="icon__flex">
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="openDeleteWindow(element)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="openUpdateWindow(element)"
+        >
+          <mat-icon>update</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 15]"
+    [length]="100"
+    showFirstLastButtons
+    aria-label="Selecciona la página"
+  >
+  </mat-paginator>
+  <div class="add__container">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Crear publicacion"
+      (click)="openAddWindow()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

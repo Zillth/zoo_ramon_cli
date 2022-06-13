@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+  {{ data.id_distribucion == undefined ? "Añadir" : "Modificar" }} Distribución
+</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Nombre de distribución</mat-label>
+    <input matInput [(ngModel)]="data.nombre_distribucion" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput [(ngModel)]="data.descripcion_distribucion"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    {{ data.id_distribucion == undefined ? "Añadir" : "Modificar" }}
+  </button>
+</div>

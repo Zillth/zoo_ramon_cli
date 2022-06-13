@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <span [routerLink]="['/']" class="pointer">Zoologico Ramón</span>
+  <span class="example-spacer"></span>
+  <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu" *ngIf="isAdmin">
+    Gestionar
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/animales']">Animales</button>
+    <button mat-menu-item [routerLink]="['/admin/cuidadores']">Cuidadores</button>
+    <button mat-menu-item [routerLink]="['/admin/relacion-cuidadores']">Relación cuidador-animal</button>
+  </mat-menu>
+  <button mat-stroked-button color="primary" *ngIf="isAdmin" (click)="logout()" [routerLink]="['/auth/login']">
+    Cerrar Sesión
+  </button>
+</mat-toolbar>

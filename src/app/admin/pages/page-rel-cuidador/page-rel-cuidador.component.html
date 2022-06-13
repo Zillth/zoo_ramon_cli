@@ -1,0 +1,58 @@
+<div class="mat-elevation-z8 table__container">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="CUIDADOR">
+      <th mat-header-cell *matHeaderCellDef class="headers">CUIDADOR</th>
+      <td mat-cell *matCellDef="let element" class="font__config">
+        {{ element.nombre_cuidador }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ANIMAL">
+      <th mat-header-cell *matHeaderCellDef class="headers">ANIMAL</th>
+      <td mat-cell *matCellDef="let element" class="font__config">
+        {{ element.nombre_animal }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="HORARIO">
+        <th mat-header-cell *matHeaderCellDef class="headers">HORARIO</th>
+        <td mat-cell *matCellDef="let element" class="font__config">
+          {{ element.horario_cuida }}
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="ACCIONES">
+      <th mat-header-cell *matHeaderCellDef class="headers">ACCIONES</th>
+      <td mat-cell *matCellDef="let element" class="icon__flex">
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="openDeleteWindow(element)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 15]"
+    [length]="100"
+    showFirstLastButtons
+    aria-label="Selecciona la página"
+  >
+  </mat-paginator>
+  <div class="add__container">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Crear publicacion"
+      (click)="openAddWindow()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

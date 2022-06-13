@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>
+  {{ data.id_animal == undefined ? "Añadir" : "Modificar" }} Animal
+</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Nombre de animal</mat-label>
+    <input matInput [(ngModel)]="data.nombre_animal" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Estado de conservación</mat-label>
+    <input matInput [(ngModel)]="data.e_conservacion" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Dieta</mat-label>
+    <textarea matInput [(ngModel)]="data.dieta" ></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Reproduccion</mat-label>
+    <textarea matInput [(ngModel)]="data.reproduccion" ></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Adaptacion</mat-label>
+    <textarea matInput [(ngModel)]="data.adaptacion" ></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Amenazas</mat-label>
+    <textarea matInput [(ngModel)]="data.amenazas" ></textarea>
+  </mat-form-field>
+  <mat-form-field class="form__field">
+    <mat-label>Especie</mat-label>
+    <mat-select [(ngModel)]="data.id_especie">
+      <mat-option *ngFor="let especie of especies" [value]="especie.id_especie">{{especie.nombre_especie}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form__field">
+    <mat-label>Zona de exhibicion</mat-label>
+    <mat-select [(ngModel)]="data.id_zona">
+      <mat-option *ngFor="let zona of zonas" [value]="zona.id_zona">{{zona.nombre_zona}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form__field">
+    <mat-label>Ecosistema</mat-label>
+    <mat-select [(ngModel)]="data.id_ecosistema">
+      <mat-option *ngFor="let ecosistema of ecosistemas" [value]="ecosistema.id_ecosistema">{{ecosistema.nombre_ecosistema}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    {{ data.id_animal == undefined ? "Añadir" : "Modificar" }}
+  </button>
+</div>

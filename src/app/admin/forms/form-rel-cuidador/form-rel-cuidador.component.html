@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Relacionar</h1>
+<mat-form-field class="form__field">
+  <mat-label>Cuidador</mat-label>
+  <mat-select [(ngModel)]="data.id_cuidador">
+    <mat-option
+      *ngFor="let cuidador of cuidadores"
+      [value]="cuidador.id_cuidador"
+      >{{ cuidador.nombre_cuidador }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="form__field">
+  <mat-label>Animal</mat-label>
+  <mat-select [(ngModel)]="data.id_animal">
+    <mat-option
+      *ngFor="let animal of animales"
+      [value]="animal.id_ecosistema"
+      >{{ animal.nombre_animal }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" class="form__field">
+  <mat-label>Horario de cuidado</mat-label>
+  <input matInput [(ngModel)]="data.horario_cuida" />
+</mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Aceptar</button>
+</div>

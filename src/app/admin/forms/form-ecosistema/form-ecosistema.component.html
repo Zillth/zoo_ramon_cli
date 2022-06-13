@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+  {{ data.id_ecosistema == undefined ? "Añadir" : "Modificar" }} Ecosistema
+</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="form__field">
+    <mat-label>Nombre de ecosistema</mat-label>
+    <input matInput [(ngModel)]="data.nombre_ecosistema" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    {{ data.id_ecosistema == undefined ? "Añadir" : "Modificar" }}
+  </button>
+</div>

@@ -1,0 +1,10 @@
+.footer__container {
+    background-color: #f2f2f3;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.click {
+    cursor: pointer;
+}

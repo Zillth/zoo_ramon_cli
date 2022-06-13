@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="img__container">
+    <img src="assets/ramon.webp" alt="Pinguino admin">
+  </div>
+  <form class="form__container_super" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-card class="card__container">
+      <div class="form__container">
+        <h2>Iniciar sesión</h2>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"/>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary">
+          Aceptar
+        </button>
+      </div>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Relacionar</h1>
+<mat-form-field class="form__field">
+  <mat-label>Distribución</mat-label>
+  <mat-select [(ngModel)]="data.id_distribucion">
+    <mat-option
+      *ngFor="let distribucion of distribuciones"
+      [value]="distribucion.id_distribucion"
+      >{{ distribucion.nombre_distribucion }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="form__field">
+  <mat-label>Animal</mat-label>
+  <mat-select [(ngModel)]="data.id_animal">
+    <mat-option
+      *ngFor="let animal of animales"
+      [value]="animal.id_ecosistema"
+      >{{ animal.nombre_animal }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Aceptar</button>
+</div>
